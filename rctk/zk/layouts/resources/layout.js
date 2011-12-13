@@ -17,16 +17,14 @@ Onion.layout.Layout.prototype.create = function() {
 }
 
 Onion.layout.Layout.prototype.append = function(control, options) {
+zk.log("1 cccccccccccccccccccccccc");
     this.create();
-
     this.layoutcontrol.appendChild(control.control);
-    //control.control.appendTo(this.layoutcontrol);
     control.containingparent = this.parent;
-    //this.layoutcontrol.layout(this.config);
 }
 
 Onion.layout.Layout.prototype.remove = function(control, options) {
-    var factory = $("#factory");
-    control.control.appendTo(factory);
-    control.containingparent = null;
+zk.log("2 cccccccccccccccccccccccc");
+//    this.layoutcontrol.removeChild(control.control);
+//    control.containingparent = null;
 }

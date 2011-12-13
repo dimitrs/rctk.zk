@@ -17,7 +17,7 @@ Onion.widget.Control.prototype.handle = function(type) {
 };
 
 Onion.widget.Control.prototype.set_properties = function(data) {
-    if (data === undefined) {
+    if (data == undefined) {
         return;
     }
   
@@ -126,6 +126,7 @@ Onion.widget.Control.prototype.create = function(data) {
 };
 
 Onion.widget.Control.prototype.destroy = function() {
+    zk.log("destroy ");                        
     this.control.remove();
 };
 
@@ -160,6 +161,7 @@ Onion.widget.Container.prototype.append = function(control, data) {
 };
 
 Onion.widget.Container.prototype.remove = function(control, data) {
+    zk.log("remove " + this.name + " " + control.name);                        
     this.layout.remove(control, data);
 };
 

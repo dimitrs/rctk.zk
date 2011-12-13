@@ -17,4 +17,4 @@ addResource(JSFileResource('resources/grid.js'))
 addResource(JSFileResource('resources/image.js'))
 addResource(JSFileResource('resources/radiobutton.js'))
 addResource(JSFileResource('resources/collection.js'))
-
+addResource(JSFileResource('resources/combo.js'))

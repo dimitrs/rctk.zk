@@ -15968,8 +15968,8 @@ jq(function() {
 		_reszInf.time = null; 
 		_reszInf.lastTime = now + 1000;
 			
-
-		if (!zk.zkuery) zAu._onClientInfo();
+		// DIMITRI
+		//if (!zk.zkuery) zAu._onClientInfo();
 
 		_reszInf.inResize = true;
 		try {
@@ -16013,8 +16013,9 @@ jq(function() {
 		} else
 			_afterKeyDown(wevt);
 
-		if (evt.keyCode == 27
-		&& (zk._noESC > 0 || (!zk.zkuery && zAu.shallIgnoreESC()))) 
+		// DIMITRI
+		//if (evt.keyCode == 27 && (zk._noESC > 0 || (!zk.zkuery && zAu.shallIgnoreESC()))) 
+		if (evt.keyCode == 27 && (zk._noESC > 0)) 		
 			return false; 
 	})
 	.keyup(function (evt) {
@@ -16153,7 +16154,8 @@ jq(function() {
 						url: zk.ajaxURI(null, {desktop:dt,au:true}),
 						data: {dtid: dtid, cmd_0: bRmDesktop?"rmDesktop":"dummy", opt_0: "i"},
 						beforeSend: function (xhr) {
-							if (zk.pfmeter) zAu._pfsend(dt, xhr, true);
+							// DIMITRI
+							//if (zk.pfmeter) zAu._pfsend(dt, xhr, true);
 						},
 						
 						

@@ -32,7 +32,7 @@ Onion.widget.List.prototype.create = function(data) {
 		},
     });
 
-	this.handle_click = false;
+    this.handle_click = false;
 
     this.control.setMultiple(false);
 
@@ -43,21 +43,21 @@ Onion.widget.List.prototype.create = function(data) {
     }
     if('multiple' in data) {
         if(data.multiple) {
-		    this.control.setMultiple(true);	   
+	    this.control.setMultiple(true);	   
        }
     }
     this.set_properties(data);
 };
 
 Onion.widget.List.prototype.append_item = function(key, label) {
-	var item = new ListIndexedComboitem({label: label});	
-	item.key = key;
+    var item = new ListIndexedComboitem({label: label});	
+    item.key = key;
     this.control.appendChild(item);
     this.items.push({'key':key, 'item':item});    
 };
 
 Onion.widget.List.prototype.val = function() {
-	var v = this.control.getSelectedItems();
+    var v = this.control.getSelectedItems();
     // a non-multiselect will return a single val. We want to be consistent
     // and always return arrays
     if(!jQuery.isArray(v)) {

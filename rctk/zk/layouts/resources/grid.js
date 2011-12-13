@@ -13,6 +13,7 @@
 Onion.layout.NewLayout = function(jwin, parent, config) {
     Onion.layout.Layout.apply(this, arguments);
     config = config?config:{};
+    this.name = "new";    
 }
 
 Onion.layout.NewLayout.prototype = new Onion.layout.Layout();
@@ -59,6 +60,11 @@ Onion.layout.NewLayout.prototype.append = function(control, data) {
     this.create();    
     this.children.push(control.control);
     control.containingparent = this.parent;
+}
+
+Onion.layout.NewLayout.prototype.remove = function(control, options) {
+    control.control.parent.removeChild(control.control);
+    control.containingparent = null;
 }
 
 Onion.layout.NewLayout.prototype.initialize = function(config) {

@@ -8,11 +8,11 @@
  */
 Onion.widget.Root = function(jwin) {
     this.toproot = new zul.wnd.Window();
-    jq('body').replaceWith(this.toproot);
+    //jq('body').replaceWith(this.toproot);
     
     this.control = new zul.wnd.Window();
-    jq('body').replaceWith(this.control);    
-    this.toproot.appendChild(this.control);
+    jq('#main').replaceWith(this.control);    
+    //this.toproot.appendChild(this.control);
     this.container = this.control;
     Onion.widget.Container.apply(this, [jwin, this, 0]);
     this.name = "root";
@@ -25,8 +25,17 @@ Onion.widget.Root.prototype.create = function(data) {
 }
 
 Onion.widget.Root.prototype.append = function(control, data) {
+zk.log("1 rrrrrrrrrrrrrrr " + control.name);
     this.layout.append(control, data);
 }
+
+Onion.widget.Root.prototype.remove = function(control, options) {
+zk.log("2 rrrrrrrrrrrrr " + control.name + " " + this.layout.name);
+    this.layout.remove(control, options);
+    //this.layoutcontrol.removeChild(control.control);
+    //control.containingparent = null;
+}
+
 
 Onion.widget.Root.prototype.set_properties = function(data) {
     Onion.widget.Container.prototype.set_properties.apply(this, arguments);
