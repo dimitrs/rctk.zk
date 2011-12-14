@@ -16,13 +16,12 @@ Onion.widget.Dropdown.prototype.create = function(data) {
     var self=this;   
 
     this.listbox = new zul.sel.Listbox({
+		onClick: function (evnt) {},		
 		onSelect: function (evnt) {
 		    this.parent.parent.setValue(this.getSelectedItem().getLabel());
-			zk.log("1 dddddddddddddddddddd " + this.parent.parent.isOpen());
-            this.parent.parent.setOpen(false, null);
-			zk.log("2 dddddddddddddddddddd " + this.parent.parent.isOpen());			
-			//self.changed(evnt); 
-			//self.jwin.flush();					
+			this.parent.parent.close(null);
+			self.changed(evnt); 
+			self.jwin.flush();					
 		}
     });
 		
@@ -31,9 +30,11 @@ Onion.widget.Dropdown.prototype.create = function(data) {
 		mold: "rounded", 
 		autocomplete: false, 
 		autodrop: false, 
-		//readonly: true,		
+		readonly: true,		
 		onError: false,
 		onChange: false, 
+		onClick: false, 
+		onOpen: false,
 		children: [	
             new zul.inp.Bandpopup({
                 children: [

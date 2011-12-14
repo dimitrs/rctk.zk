@@ -1953,18 +1953,19 @@ zul.inp.ComboWidget = zk.$extends(zul.inp.InputWidget, {
 			return;
 		}
 		this._open = false;
+
 		if (opts && opts.focus)
 			this.focus();
 		else
 			jq(this.$n()).removeClass(this.getZclass() + '-focus');
-		
+
 		var pp = this.getPopupNode_();
 		if (!pp) return;
 
 		this.setFloating_(false);
 		zWatch.fireDown("onHide", this);
 		this.slideUp_(pp);
-
+		
 		zk.afterAnimate(function() {
 			zk(pp).undoVParent();
 		}, -1);
@@ -1973,12 +1974,12 @@ zul.inp.ComboWidget = zk.$extends(zul.inp.InputWidget, {
 			this._shadow.destroy();
 			this._shadow = null;
 		}
+
 		var n = this.$n('btn');
 		if (n) jq(n).removeClass(this.getZclass() + '-btn-over');
 
 		if (opts && opts.sendOnOpen)
 			this.fire('onOpen', {open:false, value: this.getInputNode().value}, {rtags: {onOpen: 1}});
-
 	},
 	_fixsz: function (ppofs) {
 		var pp = this.getPopupNode_();
@@ -2148,16 +2149,19 @@ zul.inp.ComboWidget = zk.$extends(zul.inp.InputWidget, {
 	},
 	doClick_: function (evt) {
 		if (!this._disabled) {
-			if (evt.domTarget == this.getPopupNode_())
+			if (evt.domTarget == this.getPopupNode_()) {
 				this.close({
 					focus: true,
 					sendOnOpen: true
 				});
-			else if (this._readonly && !this.isOpen() && this._buttonVisible)
-				this.open({
+			}
+			else if (this._readonly && !this.isOpen() && this._buttonVisible) {
+				// DIMITRI
+				/*this.open({
 					focus: true,
 					sendOnOpen: true
-				});
+				});*/
+			}
 			this.$supers('doClick_', arguments);
 		}
 	},
