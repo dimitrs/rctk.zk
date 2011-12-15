@@ -8,11 +8,10 @@
  */
 Onion.widget.Root = function(jwin) {
     this.toproot = new zul.wnd.Window();
-    //jq('body').replaceWith(this.toproot);
+    jq('#toproot').replaceWith(this.toproot);
     
     this.control = new zul.wnd.Window();
     jq('#main').replaceWith(this.control);    
-    //this.toproot.appendChild(this.control);
     this.container = this.control;
     Onion.widget.Container.apply(this, [jwin, this, 0]);
     this.name = "root";

@@ -38,6 +38,8 @@ Onion.widget.Frame.prototype.create = function(data) {
 		id: controlid,
 		title: data.title,
 		border: 'normal',
+		hflex: true,
+		vflex: true,		
 		//width: "500px",
 		onClose: function () {        
 	        self.closed();
