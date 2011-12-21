@@ -24,12 +24,10 @@ Onion.widget.Root.prototype.create = function(data) {
 }
 
 Onion.widget.Root.prototype.append = function(control, data) {
-zk.log("1 rrrrrrrrrrrrrrr " + control.name);
     this.layout.append(control, data);
 }
 
 Onion.widget.Root.prototype.remove = function(control, options) {
-zk.log("2 rrrrrrrrrrrrr " + control.name + " " + this.layout.name);
     this.layout.remove(control, options);
     //this.layoutcontrol.removeChild(control.control);
     //control.containingparent = null;
