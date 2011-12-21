@@ -17,7 +17,6 @@ Onion.layout.Layout.prototype.create = function() {
 }
 
 Onion.layout.Layout.prototype.append = function(control, options) {
-zk.log("1 cccccccccccccccccccccccc");
     this.create();
     this.layoutcontrol.appendChild(control.control);
     control.containingparent = this.parent;
